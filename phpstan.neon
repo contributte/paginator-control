@@ -1,0 +1,13 @@
+parameters:
+	scanDirectories:
+		- src
+		- Tests
+	bootstrapFiles:
+		- phpstanConfig.php
+	ignoreErrors:
+		- '#Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage::(with)|(once)|(times)|(withArgs)\(\).#'
+		- '#Access to an undefined property Nette\\Application\\UI\\Templat(e)|(e\|stdClass)::\$(paginator)|(steps).#'
+		- '#Cannot call method render\(\) on Nette\\Application\\UI\\Template\|stdClass.#'
+	reportUnmatchedIgnoredErrors: false
+
+	level: 8

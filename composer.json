@@ -1,0 +1,53 @@
+{
+    "name": "contributte/paginator",
+    "type": "library",
+    "description": "Nette component for paginate items",
+    "keywords": [
+        "nette",
+        "contributte",
+        "php",
+        "paginator",
+        "items"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/contributte/paginator-control",
+    "authors": [
+        {
+            "name": "Antonín Jehlář",
+            "email": "tondajehlar@ajaximple.cz"
+        },
+        {
+            "name": "Michaela Blaťáková",
+            "email": "m.blatakova@email.cz"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "nette/application": "^3.1",
+        "nette/di": "^3.0",
+        "nette/utils": "^3.2"
+    },
+    "require-dev": {
+        "nette/tester": "^2.4",
+        "mockery/mockery": "^1.4",
+        "phpstan/phpstan": "^1.2",
+        "orisai/coding-standard": "^2.2",
+        "nette/database": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Contributte\\PaginatorControl\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Contributte\\PaginatorControl\\Tests\\": "Tests/src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
