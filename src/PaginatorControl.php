@@ -18,11 +18,12 @@ use function sort;
 class PaginatorControl extends Control
 {
 
-	#[Persistent] public int $page = 1;
+	#[Persistent]
+	public int $page = 1;
 
 	private string $templateFile = __DIR__ . '/Examples/bootstrap4.latte';
 
-		/** @var Traversable<mixed>|Countable|array<mixed> */
+	/** @var Traversable<mixed>|Countable|array<mixed> */
 	private mixed $paginated = null;
 
 	private Paginator $paginator;
