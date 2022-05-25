@@ -1,58 +1,56 @@
-# Quickstart
-📕📗 Paginator component for Nette framework (@nette)
-This extension provides paginator control for Nette applications.
+![](https://heatbadger.now.sh/github/readme/contributte/paginator/)
 
-## Instalation
+<p align=center>
+  <a href="https://github.com/contributte/paginator/actions"><img src="https://badgen.net/github/checks/contributte/paginator/master"></a>
+  <a href="https://coveralls.io/r/contributte/paginator"><img src="https://badgen.net/coveralls/c/github/contributte/paginator"></a>
+  <a href="https://packagist.org/packages/contributte/paginator"><img src="https://badgen.net/packagist/dm/contributte/paginator"></a>
+  <a href="https://packagist.org/packages/contributte/paginator"><img src="https://badgen.net/packagist/v/contributte/paginator"></a>
+</p>
+<p align=center>
+  <a href="https://packagist.org/packages/contributte/paginator"><img src="https://badgen.net/packagist/php/contributte/paginator"></a>
+  <a href="https://github.com/contributte/paginator"><img src="https://badgen.net/github/license/contributte/paginator"></a>
+  <a href="https://bit.ly/ctteg"><img src="https://badgen.net/badge/support/gitter/cyan"></a>
+  <a href="https://bit.ly/cttfo"><img src="https://badgen.net/badge/support/forum/yellow"></a>
+  <a href="https://contributte.org/partners.html"><img src="https://badgen.net/badge/sponsor/donations/F96854"></a>
+</p>
 
-#### Download
-The best way to install `contributte/paginator`, is using Composer:
-```sh
-$ composer require contributte/paginator
+<p align=center>
+Website 🚀 <a href="https://contributte.org">contributte.org</a> | Contact 👨🏻‍💻 <a href="https://f3l1x.io">f3l1x.io</a> | Twitter 🐦 <a href="https://twitter.com/contributte">@contributte</a>
+</p>
+
+## Usage
+
+To install the latest version of `contributte/paginator` use [Composer](https://getcomposer.org).
+
+```bash
+composer require contributte/paginator
 ```
 
-#### Registering
-You can enable the extension using your neon config:
-```sh
-extensions:
-	ContributtePaginationControl: Contributte\PaginatorControl\PaginatorControlExtension
-```
+## Documentation
 
-#### Injecting/using
-You can simply inject factory in Your Presenters/Controls:
-```php
-public function __construct(
-    private \Nette\Database\Explorer $db,
-	private \Contributte\PaginatorControl\PaginatorControlFactory $paginatorControlFactory,
-) {
-    parent::__construct();
-    ...
-}
-```
-And then use it:
-```php
-public function renderDefault(): void 
-{
-    $this->template->items = $this->getComponent('paginator')->getPage();
-}
+For details on how to use this package, check out our [documentation](.docs).
 
-public function createComponentPaginator(): \Contributte\PaginatorControl\PaginatorControl
-{
-    return $this->paginatorControlFactory->create(
-        \Contributte\PaginatorControl\Examples\Providers\NetteDatabaseExplorerDataProvider::create(
-            $this->db->table('users'),
-        ),
-        50,
-    );
-}
-```
+## Versions
 
-# Setting
+| State       | Version       | Branch   | Nette | PHP     |
+|-------------|---------------|----------|-------|---------|
+| dev         | `dev-master`  | `master` | 3.0+  | `>=8.0` |
 
-The create method from `paginatorControlFactory` has parameters described in PHPdoc.
+## Development
 
-After creating the component, you can call the `setTemplateFile` method on the `PaginatorControl` class instance, which sets the path to the custom `.latte` file to render the paginator. For examples, look at the Examples folder.
+See [how to contribute](https://contributte.org/contributing.html) to this package.
 
-Paginator needs an instance of the class that implements the `PaginatorDataProvider` interface to function. Implement this interface at your discretion. You can find some examples again in the `Examples` folder, specifically in the `Examples\Providers` folder.
+This package is currently maintaining by these authors.
 
-## Conclusion
-This extension requires Nette3.0 and it is property of Antonín Jehlář © 2021
+<a href="https://github.com/f3l1x">
+  <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/538058?v=3&s=80">
+</a>
+
+<a href="https://github.com/TonnyJe">
+  <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/9120518?v=3&s=80">
+</a>
+
+-----
+
+Consider to [support](https://contributte.org/partners.html) **contributte** development team.
+Also thank you for using this package.

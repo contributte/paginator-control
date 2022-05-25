@@ -1,8 +1,8 @@
 <?php declare(strict_types = 1);
 
-namespace Contributte\PaginatorControl\Tests;
+namespace Tests\Cases;
 
-require_once __DIR__ . '/Bootstrap.php';
+require_once __DIR__ . '/../bootstrap.php';
 
 use Contributte\PaginatorControl\Examples\Providers\ArrayDataProvider;
 use Contributte\PaginatorControl\PaginatorControl;
@@ -28,8 +28,7 @@ class PaginatorControlTest extends TestCase
 	/**
 	 * @param array<int> $data
 	 * @param array<int> $expected
-	 *
-	 * @dataProvider PaginatorControlTestPage.php
+	 * @dataProvider ../fixtures/PaginatorControlTestPage.php
 	 */
 	public function testGetPage(
 		array $data,
@@ -43,16 +42,15 @@ class PaginatorControlTest extends TestCase
 		$dataProvider = ArrayDataProvider::create($data);
 
 		$paginatorControl = new PaginatorControl($dataProvider, $itemsPerPage, $firstPage, $relatedPages);
-				$paginatorControl->page = $page;
+		$paginatorControl->page = $page;
 
 		Assert::same($expected, $paginatorControl->getPage(), 'testGetPage failed');
 	}
 
 	/**
-	 * @param array<int> $data
+	 * @param array<int>    $data
 	 * @param array<string> $expected
-	 *
-	 * @dataProvider PaginatorControlTestRender.php
+	 * @dataProvider ../fixtures/PaginatorControlTestRender.php
 	 */
 	public function testRender(
 		array $data,
@@ -67,24 +65,24 @@ class PaginatorControlTest extends TestCase
 
 		$paginatorControl = new PaginatorControl($dataProvider, $itemsPerPage, $firstPage, $relatedPages);
 
-				$paginatorControl->setTemplateFile($filePath);
+		$paginatorControl->setTemplateFile($filePath);
 
-				$templateFactory = $this->getTemplateFactory($filePath);
+		$templateFactory = $this->getTemplateFactory($filePath);
 
 		$paginatorControl->setTemplateFactory($templateFactory);
 
-				$paginator = new Paginator();
+		$paginator = new Paginator();
 		$paginator->setItemsPerPage($itemsPerPage);
 		$paginator->setBase($firstPage);
-				$paginator->setItemCount(count($data));
-				$paginator->setPage(1);
+		$paginator->setItemCount(count($data));
+		$paginator->setPage(1);
 
 		$paginatorControl->render();
 
-				$template = $templateFactory->createTemplate();
+		$template = $templateFactory->createTemplate();
 
-				Assert::equal($paginator, $template->paginator, 'testRender failed');
-				Assert::same($expected, $template->steps, 'testRender failed');
+		Assert::equal($paginator, $template->paginator, 'testRender failed');
+		Assert::same($expected, $template->steps, 'testRender failed');
 	}
 
 	public function testRender2(): void
@@ -93,15 +91,15 @@ class PaginatorControlTest extends TestCase
 
 		$paginatorControl = new PaginatorControl($dataProvider, itemsPerPage: 0);
 
-				$filePath = Bootstrap::getLibraryDir() . '\src/Examples/bootstrap4.latte';
+		$filePath = __DIR__ . '/../../src/Examples/bootstrap4.latte';
 
-				$templateFactory = $this->getTemplateFactory($filePath);
+		$templateFactory = $this->getTemplateFactory($filePath);
 
 		$paginatorControl->setTemplateFactory($templateFactory);
 
 		$paginatorControl->render();
 
-				Assert::true(true);
+		Assert::true(true);
 	}
 
 	private function getTemplateFactory(string $filePath): TemplateFactory
