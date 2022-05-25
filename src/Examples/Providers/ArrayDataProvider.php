@@ -33,7 +33,7 @@ class ArrayDataProvider implements PaginatorDataProvider
 	public function page(Paginator $paginator): Traversable|Countable|array
 	{
 		$paginator->setItemCount(count($this->data));
-		$chunks = array_chunk($this->data, $paginator->getItemsPerPage(), true);
+		$chunks = array_chunk($this->data, max(1, $paginator->getItemsPerPage()), true);
 
 		return $chunks[$paginator->getPage() - $paginator->getFirstPage()] ?? [];
 	}

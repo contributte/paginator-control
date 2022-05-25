@@ -91,7 +91,7 @@ class PaginatorControlTest extends TestCase
 
 		$paginatorControl = new PaginatorControl($dataProvider, itemsPerPage: 0);
 
-		$filePath = __DIR__ . '/../../src/Examples/bootstrap4.latte';
+		$filePath = dirname(__DIR__, 2) . '\src/Examples/bootstrap4.latte';
 
 		$templateFactory = $this->getTemplateFactory($filePath);
 
