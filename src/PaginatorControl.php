@@ -5,6 +5,7 @@ namespace Contributte\PaginatorControl;
 use Countable;
 use Nette\Application\Attributes\Persistent;
 use Nette\Application\UI\Control;
+use Nette\Utils\Arrays;
 use Nette\Utils\Paginator;
 use Traversable;
 use function array_unique;
@@ -27,6 +28,9 @@ class PaginatorControl extends Control
 	private mixed $paginated = null;
 
 	private Paginator $paginator;
+
+	/** @var array<callable(self): void>  Occurs when page signal is received */
+	public $onPagination = [];
 
 	public function __construct(
 		private PaginatorDataProvider $dataProvider,
@@ -69,6 +73,11 @@ class PaginatorControl extends Control
 		}
 
 		return $this->paginated;
+	}
+
+	public function handlePage(): void
+	{
+		Arrays::invoke($this->onPagination, $this);
 	}
 
 	/**
