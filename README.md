@@ -1,4 +1,4 @@
-![](https://heatbadger.now.sh/github/readme/contributte/paginator/)
+![](https://heatbadger.now.sh/github/readme/contributte/paginator/?deprecated=1)
 
 <p align=center>
   <a href="https://github.com/contributte/paginator/actions"><img src="https://badgen.net/github/checks/contributte/paginator/master"></a>
@@ -17,6 +17,24 @@
 <p align=center>
 Website 🚀 <a href="https://contributte.org">contributte.org</a> | Contact 👨🏻‍💻 <a href="https://f3l1x.io">f3l1x.io</a> | Twitter 🐦 <a href="https://twitter.com/contributte">@contributte</a>
 </p>
+
+-----
+
+| ⚠️ **This project is no longer being maintained.** |
+|---|
+
+<p>
+  <strong>📦 Package: </strong>
+  <code>contributte/paginator</code>
+</p>
+
+<p align=center>
+  <a href="https://packagist.org/packages/contributte/paginator"><img src="https://badgen.net/packagist/v/contributte/paginator"></a>
+  <a href="https://packagist.org/packages/contributte/paginator"><img src="https://badgen.net/packagist/php/contributte/paginator"></a>
+  <a href="https://github.com/contributte/paginator"><img src="https://badgen.net/github/license/contributte/paginator"></a>
+</p>
+
+-----
 
 ## Usage
 
@@ -40,7 +58,7 @@ For details on how to use this package, check out our [documentation](.docs).
 
 See [how to contribute](https://contributte.org/contributing.html) to this package.
 
-This package is currently maintaining by these authors.
+This package was maintained by these authors.
 
 <a href="https://github.com/f3l1x">
   <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/538058?v=3&s=80">
